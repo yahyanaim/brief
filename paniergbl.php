@@ -47,29 +47,7 @@ if(!isset($_SESSION['iduser'])){
       </div>
         </div>
       </div>
-<div class='container'>
-        <div class='row'>
-          <div class='cola col-1 '>
-            <img src='./image/1.jpg' class='img1 mt-3'>
-          </div>
-          <div class='cola col-5 border-right'>
-            <h6 class=' mt-3 '>Batterie pour Xiaomi Series (redmi note 5 Pro)</h6>
-                <div class='rowc ml-4 mt-3'>
-                <div class='col-4 '><img src='./icon/like.png' class='icon'><a href='#' class='link'>FAVORIS</a> </div>
-                <div class='col-5 '><img src='./icon/bin.png' class='icon'> <a href='#' class='link'>SUPPRIMER</a></div>
-                    </div>
-          </div>
-          <div class='cola col-1 cent border-right'>
-          <kbd>12</kbd>
-          </div>
-          <div class='cola col-2 cent border-right'>
-              <h6 class='m-auto'>100dh</h6>
-        </div>
-        <div class='cola col-2 cent cor'>
-            <h6 class='m-auto'>100dh</h6>
-        </div>
-        </div>
-</div>
+
 <?php include('panierglb.php')?> 
 <div class='container mt-5'>
 <div class=' mt-5 rowc  '>

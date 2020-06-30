@@ -13,7 +13,7 @@ if (isset($_GET['prixmax'])){
     $max=$_GET['prixmax'];
 }
 else{
-    $max=99999999;
+    $max=99999999;  /// filteration 
 }
 if ($max=="") {
     $max=99999999;

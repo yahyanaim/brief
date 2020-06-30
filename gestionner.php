@@ -18,58 +18,70 @@
 
 
 <?php 
-$user = "SELECT * FROM user where idrole='2'" ;
+$user = "SELECT * FROM user where id_user='26'" ;
 $resultuser = $conn->query($user);
 
 if ($resultuser->num_rows > 0) {
  
   // output data of each row
   while($rowuser = $resultuser->fetch_assoc()) {
-     echo   "<div class='container'>
-             <table class='table'>
-               <thead class='table-primary'>
-                 <tr>
-                   <th scope='col  '>" . $rowuser["username"] . "</th>
-                 </tr>
-            </thead>
-             </div>
-                       <div class='container'>
-              <table class='table table-hover'>
-              <thead>
-              
-                <tr>
-                  <th scope='col'>ID-pro</th>
-                  <th scope='col'>le nom de produit</th>
-                  <th scope='col'>Prix</th>
-                  <th scope='col'>quantité</th>
-                  <th scope='col'>afficher</th>
-                  <th scope='col'>--------</th>
-                </tr>
-              </thead>
-              <tbody>";
+     echo   "
+     <div class='alert alert-light alert-dismissible fade show'>
+    <strong>" . $rowuser["username"] . "</strong> these changes will affect the  products of this distributor 
+    <button type='button' class='close' data-dismiss='alert'>&times;</button>
+</div>
+     <table id='tablePreview' class='table table-striped table-hover'>
+
+     <thead>
+       <tr style='background-color: #81ecec;'> 
+         <th>ID-pro</th>
+         <th>le nom de produit</th>
+         <th>Prix</th>
+         <th>quantité</th>
+         <th>visbilte</th>
+         <th>--------</th>
+         
+       </tr>
+     </thead>
+   
+     <tbody>";
               $pro = "SELECT * FROM produit";
               $resultpro = $conn->query($pro);
               
               if ($resultpro->num_rows > 0) {
                
                 while($rowpro = $resultpro->fetch_assoc()) {
-                    echo   "<tr>
-                    <form action='gest.php' method='GET'>
-                    <input type='number' class='d-none' name='ID_pro' value='" . $rowpro["ID_pro"] . "'>
-                    <input type='number' class='d-none' name='id_ad' value='" . $rowpro["id_ad"] . "'>
-                    <th scope='row'>" . $rowpro["ID_pro"] . "</th>
-                    <td>" . $rowpro["nom"] . "</td>
-                    <td>" . $rowpro["prix"] . "</td>
-                    <td ><input type='number'  name='qantite' min='0' max='1000' value='" . $rowpro["Qte"] . "'></td>
-                    <td ><input type='number'  name='afficher' min='0' max='1' value='" . $rowpro["visible"] . "'></label></td>
-                    <td ><input type='submit' class='btn btn-primary' value='modifier'></td>
-                    </form>
-                  </tr>";
+                  //   "<tr>
+                  //   <form action='gest.php' method='GET'>
+                  //   <input type='number' class='d-none' name='ID_pro' value='" . $rowpro["ID_pro"] . "'>
+                  //   <input type='number' class='d-none' name='id_ad' value='" . $rowpro["id_ad"] . "'>
+                  //   <th scope='row'>" . $rowpro["ID_pro"] . "</th>
+                  //   <td>" . $rowpro["nom"] . "</td>
+                  //   <td>" . $rowpro["prix"] . "</td>
+                  //   <td ><input type='number'  name='qantite' min='0' max='1000' value='" . $rowpro["Qte"] . "'></td>
+                  //   <td ><input type='number'  name='afficher' min='0' max='1' value='" . $rowpro["visible"] . "'></label></td>
+                  //   <td ><input type='submit' class='btn btn-primary' value='modifier'></td>
+                  //   </form>
+                  // </tr>";
+                  echo "<tr style='background-color: #00cec9;'>
+                  <form action='gest.php' method='GET'>
+                  <input type='number' class='d-none' name='ID_pro' value='" . $rowpro["ID_pro"] . "'>
+                  <input type='number' class='d-none' name='id_ad' value='" . $rowpro["id_ad"] . "'>
+                  <th scope='row'>" . $rowpro["ID_pro"] . "</th>
+                  <td>" . $rowpro["nom"] . "</td>
+                  <td>" . $rowpro["prix"] . "</td>
+                  <td ><input type='number'  name='qantite' min='0' max='1000' value='" . $rowpro["Qte"] . "'></td>
+                  <td ><input type='number'  name='afficher' min='0' max='1' value='" . $rowpro["visible"] . "'></label></td>              
+                  <td><button type='submit' class='btn btn-success'>Changer </button></td>
+                  </form>
+                  
+                 
+                </tr>";
                  }
               } 
-      echo" </tbody>
-              </table>
-            </div>"  ;        
+      echo"   </tbody>
+
+      </table>"  ;        
    }
 } 
 

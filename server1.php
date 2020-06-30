@@ -60,10 +60,11 @@ if ($resultuser->num_rows > 0) {
           header('Location: gestion.php');
           exit();
         }elseif ($rowuser["idrole"]==2) {
-          header('Location: public/admin/index.php');
+          header('Location: gestionner.php');
           exit();
         }else{
-           //admin
+            header('Location: public/admin/index.php');
+          exit();
         }
     }
     
